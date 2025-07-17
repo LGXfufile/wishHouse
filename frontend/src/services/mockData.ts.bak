@@ -11,8 +11,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 42,
     isLiked: true,
-    createdAt: new Date('2024-01-15').toISOString(),
-    updatedAt: new Date('2024-01-15').toISOString()
+    createdAt: new Date('2024-01-15').toISOString()
   },
   {
     _id: 'h2',
@@ -22,8 +21,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 38,
     isLiked: false,
-    createdAt: new Date('2024-01-14').toISOString(),
-    updatedAt: new Date('2024-01-14').toISOString()
+    createdAt: new Date('2024-01-14').toISOString()
   },
   {
     _id: 'h3',
@@ -37,8 +35,7 @@ const mockWishes: Wish[] = [
     },
     likes: 55,
     isLiked: true,
-    createdAt: new Date('2024-01-13').toISOString(),
-    updatedAt: new Date('2024-01-13').toISOString()
+    createdAt: new Date('2024-01-13').toISOString()
   },
   {
     _id: 'h4',
@@ -52,8 +49,7 @@ const mockWishes: Wish[] = [
     },
     likes: 67,
     isLiked: false,
-    createdAt: new Date('2024-01-12').toISOString(),
-    updatedAt: new Date('2024-01-12').toISOString()
+    createdAt: new Date('2024-01-12').toISOString()
   },
   {
     _id: 'h5',
@@ -63,8 +59,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 29,
     isLiked: true,
-    createdAt: new Date('2024-01-11').toISOString(),
-    updatedAt: new Date('2024-01-11').toISOString()
+    createdAt: new Date('2024-01-11').toISOString()
   },
   {
     _id: 'h6',
@@ -78,8 +73,7 @@ const mockWishes: Wish[] = [
     },
     likes: 89,
     isLiked: true,
-    createdAt: new Date('2024-01-10').toISOString(),
-    updatedAt: new Date('2024-01-10').toISOString()
+    createdAt: new Date('2024-01-10').toISOString()
   },
   {
     _id: 'h7',
@@ -89,8 +83,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 134,
     isLiked: false,
-    createdAt: new Date('2024-01-09').toISOString(),
-    updatedAt: new Date('2024-01-09').toISOString()
+    createdAt: new Date('2024-01-09').toISOString()
   },
   {
     _id: 'h8',
@@ -100,8 +93,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 78,
     isLiked: true,
-    createdAt: new Date('2024-01-08').toISOString(),
-    updatedAt: new Date('2024-01-08').toISOString()
+    createdAt: new Date('2024-01-08').toISOString()
   },
   {
     _id: 'h9',
@@ -115,8 +107,7 @@ const mockWishes: Wish[] = [
     },
     likes: 45,
     isLiked: false,
-    createdAt: new Date('2024-01-07').toISOString(),
-    updatedAt: new Date('2024-01-07').toISOString()
+    createdAt: new Date('2024-01-07').toISOString()
   },
   {
     _id: 'h10',
@@ -130,8 +121,7 @@ const mockWishes: Wish[] = [
     },
     likes: 52,
     isLiked: true,
-    createdAt: new Date('2024-01-06').toISOString(),
-    updatedAt: new Date('2024-01-06').toISOString()
+    createdAt: new Date('2024-01-06').toISOString()
   },
   {
     _id: 'h11',
@@ -141,8 +131,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 31,
     isLiked: false,
-    createdAt: new Date('2024-01-05').toISOString(),
-    updatedAt: new Date('2024-01-05').toISOString()
+    createdAt: new Date('2024-01-05').toISOString()
   },
   {
     _id: 'h12',
@@ -156,8 +145,7 @@ const mockWishes: Wish[] = [
     },
     likes: 24,
     isLiked: true,
-    createdAt: new Date('2024-01-04').toISOString(),
-    updatedAt: new Date('2024-01-04').toISOString()
+    createdAt: new Date('2024-01-04').toISOString()
   },
   {
     _id: 'h13',
@@ -167,8 +155,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 96,
     isLiked: false,
-    createdAt: new Date('2024-01-03').toISOString(),
-    updatedAt: new Date('2024-01-03').toISOString()
+    createdAt: new Date('2024-01-03').toISOString()
   },
   {
     _id: 'h14',
@@ -182,8 +169,7 @@ const mockWishes: Wish[] = [
     },
     likes: 37,
     isLiked: true,
-    createdAt: new Date('2024-01-02').toISOString(),
-    updatedAt: new Date('2024-01-02').toISOString()
+    createdAt: new Date('2024-01-02').toISOString()
   },
   {
     _id: 'h15',
@@ -197,8 +183,7 @@ const mockWishes: Wish[] = [
     },
     likes: 73,
     isLiked: false,
-    createdAt: new Date('2024-01-01').toISOString(),
-    updatedAt: new Date('2024-01-01').toISOString()
+    createdAt: new Date('2024-01-01').toISOString()
   },
 
   // Career 类目 (12条)
@@ -214,8 +199,7 @@ const mockWishes: Wish[] = [
     },
     likes: 24,
     isLiked: false,
-    createdAt: new Date('2024-01-15').toISOString(),
-    updatedAt: new Date('2024-01-15').toISOString()
+    createdAt: new Date('2024-01-15').toISOString()
   },
   {
     _id: 'c2',
@@ -229,8 +213,7 @@ const mockWishes: Wish[] = [
     },
     likes: 22,
     isLiked: true,
-    createdAt: new Date('2024-01-14').toISOString(),
-    updatedAt: new Date('2024-01-14').toISOString()
+    createdAt: new Date('2024-01-14').toISOString()
   },
   {
     _id: 'c3',
@@ -240,8 +223,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 41,
     isLiked: false,
-    createdAt: new Date('2024-01-13').toISOString(),
-    updatedAt: new Date('2024-01-13').toISOString()
+    createdAt: new Date('2024-01-13').toISOString()
   },
   {
     _id: 'c4',
@@ -255,8 +237,7 @@ const mockWishes: Wish[] = [
     },
     likes: 56,
     isLiked: true,
-    createdAt: new Date('2024-01-12').toISOString(),
-    updatedAt: new Date('2024-01-12').toISOString()
+    createdAt: new Date('2024-01-12').toISOString()
   },
   {
     _id: 'c5',
@@ -270,8 +251,7 @@ const mockWishes: Wish[] = [
     },
     likes: 68,
     isLiked: false,
-    createdAt: new Date('2024-01-11').toISOString(),
-    updatedAt: new Date('2024-01-11').toISOString()
+    createdAt: new Date('2024-01-11').toISOString()
   },
   {
     _id: 'c6',
@@ -281,8 +261,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 89,
     isLiked: true,
-    createdAt: new Date('2024-01-10').toISOString(),
-    updatedAt: new Date('2024-01-10').toISOString()
+    createdAt: new Date('2024-01-10').toISOString()
   },
   {
     _id: 'c7',
@@ -296,8 +275,7 @@ const mockWishes: Wish[] = [
     },
     likes: 35,
     isLiked: false,
-    createdAt: new Date('2024-01-09').toISOString(),
-    updatedAt: new Date('2024-01-09').toISOString()
+    createdAt: new Date('2024-01-09').toISOString()
   },
   {
     _id: 'c8',
@@ -311,8 +289,7 @@ const mockWishes: Wish[] = [
     },
     likes: 47,
     isLiked: true,
-    createdAt: new Date('2024-01-08').toISOString(),
-    updatedAt: new Date('2024-01-08').toISOString()
+    createdAt: new Date('2024-01-08').toISOString()
   },
   {
     _id: 'c9',
@@ -322,8 +299,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 33,
     isLiked: false,
-    createdAt: new Date('2024-01-07').toISOString(),
-    updatedAt: new Date('2024-01-07').toISOString()
+    createdAt: new Date('2024-01-07').toISOString()
   },
   {
     _id: 'c10',
@@ -337,8 +313,7 @@ const mockWishes: Wish[] = [
     },
     likes: 72,
     isLiked: true,
-    createdAt: new Date('2024-01-06').toISOString(),
-    updatedAt: new Date('2024-01-06').toISOString()
+    createdAt: new Date('2024-01-06').toISOString()
   },
   {
     _id: 'c11',
@@ -352,8 +327,7 @@ const mockWishes: Wish[] = [
     },
     likes: 85,
     isLiked: false,
-    createdAt: new Date('2024-01-05').toISOString(),
-    updatedAt: new Date('2024-01-05').toISOString()
+    createdAt: new Date('2024-01-05').toISOString()
   },
   {
     _id: 'c12',
@@ -363,8 +337,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 54,
     isLiked: true,
-    createdAt: new Date('2024-01-04').toISOString(),
-    updatedAt: new Date('2024-01-04').toISOString()
+    createdAt: new Date('2024-01-04').toISOString()
   },
 
   // Love 类目 (13条)
@@ -380,8 +353,7 @@ const mockWishes: Wish[] = [
     },
     likes: 18,
     isLiked: false,
-    createdAt: new Date('2024-01-15').toISOString(),
-    updatedAt: new Date('2024-01-15').toISOString()
+    createdAt: new Date('2024-01-15').toISOString()
   },
   {
     _id: 'l2',
@@ -391,8 +363,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 45,
     isLiked: false,
-    createdAt: new Date('2024-01-14').toISOString(),
-    updatedAt: new Date('2024-01-14').toISOString()
+    createdAt: new Date('2024-01-14').toISOString()
   },
   {
     _id: 'l3',
@@ -406,8 +377,7 @@ const mockWishes: Wish[] = [
     },
     likes: 67,
     isLiked: true,
-    createdAt: new Date('2024-01-13').toISOString(),
-    updatedAt: new Date('2024-01-13').toISOString()
+    createdAt: new Date('2024-01-13').toISOString()
   },
   {
     _id: 'l4',
@@ -417,8 +387,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 83,
     isLiked: true,
-    createdAt: new Date('2024-01-12').toISOString(),
-    updatedAt: new Date('2024-01-12').toISOString()
+    createdAt: new Date('2024-01-12').toISOString()
   },
   {
     _id: 'l5',
@@ -432,8 +401,7 @@ const mockWishes: Wish[] = [
     },
     likes: 92,
     isLiked: false,
-    createdAt: new Date('2024-01-11').toISOString(),
-    updatedAt: new Date('2024-01-11').toISOString()
+    createdAt: new Date('2024-01-11').toISOString()
   },
   {
     _id: 'l6',
@@ -443,8 +411,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 76,
     isLiked: true,
-    createdAt: new Date('2024-01-10').toISOString(),
-    updatedAt: new Date('2024-01-10').toISOString()
+    createdAt: new Date('2024-01-10').toISOString()
   },
   {
     _id: 'l7',
@@ -458,8 +425,7 @@ const mockWishes: Wish[] = [
     },
     likes: 58,
     isLiked: false,
-    createdAt: new Date('2024-01-09').toISOString(),
-    updatedAt: new Date('2024-01-09').toISOString()
+    createdAt: new Date('2024-01-09').toISOString()
   },
   {
     _id: 'l8',
@@ -469,8 +435,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 64,
     isLiked: true,
-    createdAt: new Date('2024-01-08').toISOString(),
-    updatedAt: new Date('2024-01-08').toISOString()
+    createdAt: new Date('2024-01-08').toISOString()
   },
   {
     _id: 'l9',
@@ -480,8 +445,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 49,
     isLiked: false,
-    createdAt: new Date('2024-01-07').toISOString(),
-    updatedAt: new Date('2024-01-07').toISOString()
+    createdAt: new Date('2024-01-07').toISOString()
   },
   {
     _id: 'l10',
@@ -495,8 +459,7 @@ const mockWishes: Wish[] = [
     },
     likes: 105,
     isLiked: true,
-    createdAt: new Date('2024-01-06').toISOString(),
-    updatedAt: new Date('2024-01-06').toISOString()
+    createdAt: new Date('2024-01-06').toISOString()
   },
   {
     _id: 'l11',
@@ -506,8 +469,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 127,
     isLiked: false,
-    createdAt: new Date('2024-01-05').toISOString(),
-    updatedAt: new Date('2024-01-05').toISOString()
+    createdAt: new Date('2024-01-05').toISOString()
   },
   {
     _id: 'l12',
@@ -521,8 +483,7 @@ const mockWishes: Wish[] = [
     },
     likes: 41,
     isLiked: true,
-    createdAt: new Date('2024-01-04').toISOString(),
-    updatedAt: new Date('2024-01-04').toISOString()
+    createdAt: new Date('2024-01-04').toISOString()
   },
   {
     _id: 'l13',
@@ -532,8 +493,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 98,
     isLiked: false,
-    createdAt: new Date('2024-01-03').toISOString(),
-    updatedAt: new Date('2024-01-03').toISOString()
+    createdAt: new Date('2024-01-03').toISOString()
   },
 
   // Study 类目 (14条)
@@ -549,8 +509,7 @@ const mockWishes: Wish[] = [
     },
     likes: 15,
     isLiked: true,
-    createdAt: new Date('2024-01-15').toISOString(),
-    updatedAt: new Date('2024-01-15').toISOString()
+    createdAt: new Date('2024-01-15').toISOString()
   },
   {
     _id: 's2',
@@ -564,8 +523,7 @@ const mockWishes: Wish[] = [
     },
     likes: 19,
     isLiked: false,
-    createdAt: new Date('2024-01-14').toISOString(),
-    updatedAt: new Date('2024-01-14').toISOString()
+    createdAt: new Date('2024-01-14').toISOString()
   },
   {
     _id: 's3',
@@ -579,8 +537,7 @@ const mockWishes: Wish[] = [
     },
     likes: 73,
     isLiked: true,
-    createdAt: new Date('2024-01-13').toISOString(),
-    updatedAt: new Date('2024-01-13').toISOString()
+    createdAt: new Date('2024-01-13').toISOString()
   },
   {
     _id: 's4',
@@ -590,8 +547,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 86,
     isLiked: false,
-    createdAt: new Date('2024-01-12').toISOString(),
-    updatedAt: new Date('2024-01-12').toISOString()
+    createdAt: new Date('2024-01-12').toISOString()
   },
   {
     _id: 's5',
@@ -605,8 +561,7 @@ const mockWishes: Wish[] = [
     },
     likes: 94,
     isLiked: true,
-    createdAt: new Date('2024-01-11').toISOString(),
-    updatedAt: new Date('2024-01-11').toISOString()
+    createdAt: new Date('2024-01-11').toISOString()
   },
   {
     _id: 's6',
@@ -616,8 +571,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 42,
     isLiked: false,
-    createdAt: new Date('2024-01-10').toISOString(),
-    updatedAt: new Date('2024-01-10').toISOString()
+    createdAt: new Date('2024-01-10').toISOString()
   },
   {
     _id: 's7',
@@ -631,8 +585,7 @@ const mockWishes: Wish[] = [
     },
     likes: 156,
     isLiked: true,
-    createdAt: new Date('2024-01-09').toISOString(),
-    updatedAt: new Date('2024-01-09').toISOString()
+    createdAt: new Date('2024-01-09').toISOString()
   },
   {
     _id: 's8',
@@ -642,8 +595,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 67,
     isLiked: false,
-    createdAt: new Date('2024-01-08').toISOString(),
-    updatedAt: new Date('2024-01-08').toISOString()
+    createdAt: new Date('2024-01-08').toISOString()
   },
   {
     _id: 's9',
@@ -657,8 +609,7 @@ const mockWishes: Wish[] = [
     },
     likes: 48,
     isLiked: true,
-    createdAt: new Date('2024-01-07').toISOString(),
-    updatedAt: new Date('2024-01-07').toISOString()
+    createdAt: new Date('2024-01-07').toISOString()
   },
   {
     _id: 's10',
@@ -668,8 +619,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 72,
     isLiked: false,
-    createdAt: new Date('2024-01-06').toISOString(),
-    updatedAt: new Date('2024-01-06').toISOString()
+    createdAt: new Date('2024-01-06').toISOString()
   },
   {
     _id: 's11',
@@ -683,8 +633,7 @@ const mockWishes: Wish[] = [
     },
     likes: 35,
     isLiked: true,
-    createdAt: new Date('2024-01-05').toISOString(),
-    updatedAt: new Date('2024-01-05').toISOString()
+    createdAt: new Date('2024-01-05').toISOString()
   },
   {
     _id: 's12',
@@ -694,8 +643,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 89,
     isLiked: false,
-    createdAt: new Date('2024-01-04').toISOString(),
-    updatedAt: new Date('2024-01-04').toISOString()
+    createdAt: new Date('2024-01-04').toISOString()
   },
   {
     _id: 's13',
@@ -709,8 +657,7 @@ const mockWishes: Wish[] = [
     },
     likes: 53,
     isLiked: true,
-    createdAt: new Date('2024-01-03').toISOString(),
-    updatedAt: new Date('2024-01-03').toISOString()
+    createdAt: new Date('2024-01-03').toISOString()
   },
   {
     _id: 's14',
@@ -720,8 +667,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 44,
     isLiked: false,
-    createdAt: new Date('2024-01-02').toISOString(),
-    updatedAt: new Date('2024-01-02').toISOString()
+    createdAt: new Date('2024-01-02').toISOString()
   },
 
   // Family 类目 (12条)
@@ -733,8 +679,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 31,
     isLiked: false,
-    createdAt: new Date('2024-01-15').toISOString(),
-    updatedAt: new Date('2024-01-15').toISOString()
+    createdAt: new Date('2024-01-15').toISOString()
   },
   {
     _id: 'f2',
@@ -748,8 +693,7 @@ const mockWishes: Wish[] = [
     },
     likes: 33,
     isLiked: true,
-    createdAt: new Date('2024-01-14').toISOString(),
-    updatedAt: new Date('2024-01-14').toISOString()
+    createdAt: new Date('2024-01-14').toISOString()
   },
   {
     _id: 'f3',
@@ -759,8 +703,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 78,
     isLiked: false,
-    createdAt: new Date('2024-01-13').toISOString(),
-    updatedAt: new Date('2024-01-13').toISOString()
+    createdAt: new Date('2024-01-13').toISOString()
   },
   {
     _id: 'f4',
@@ -774,8 +717,7 @@ const mockWishes: Wish[] = [
     },
     likes: 124,
     isLiked: true,
-    createdAt: new Date('2024-01-12').toISOString(),
-    updatedAt: new Date('2024-01-12').toISOString()
+    createdAt: new Date('2024-01-12').toISOString()
   },
   {
     _id: 'f5',
@@ -789,8 +731,7 @@ const mockWishes: Wish[] = [
     },
     likes: 67,
     isLiked: false,
-    createdAt: new Date('2024-01-11').toISOString(),
-    updatedAt: new Date('2024-01-11').toISOString()
+    createdAt: new Date('2024-01-11').toISOString()
   },
   {
     _id: 'f6',
@@ -800,8 +741,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 95,
     isLiked: true,
-    createdAt: new Date('2024-01-10').toISOString(),
-    updatedAt: new Date('2024-01-10').toISOString()
+    createdAt: new Date('2024-01-10').toISOString()
   },
   {
     _id: 'f7',
@@ -811,8 +751,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 87,
     isLiked: false,
-    createdAt: new Date('2024-01-09').toISOString(),
-    updatedAt: new Date('2024-01-09').toISOString()
+    createdAt: new Date('2024-01-09').toISOString()
   },
   {
     _id: 'f8',
@@ -826,8 +765,7 @@ const mockWishes: Wish[] = [
     },
     likes: 56,
     isLiked: true,
-    createdAt: new Date('2024-01-08').toISOString(),
-    updatedAt: new Date('2024-01-08').toISOString()
+    createdAt: new Date('2024-01-08').toISOString()
   },
   {
     _id: 'f9',
@@ -837,8 +775,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 142,
     isLiked: false,
-    createdAt: new Date('2024-01-07').toISOString(),
-    updatedAt: new Date('2024-01-07').toISOString()
+    createdAt: new Date('2024-01-07').toISOString()
   },
   {
     _id: 'f10',
@@ -852,8 +789,7 @@ const mockWishes: Wish[] = [
     },
     likes: 108,
     isLiked: true,
-    createdAt: new Date('2024-01-06').toISOString(),
-    updatedAt: new Date('2024-01-06').toISOString()
+    createdAt: new Date('2024-01-06').toISOString()
   },
   {
     _id: 'f11',
@@ -867,8 +803,7 @@ const mockWishes: Wish[] = [
     },
     likes: 74,
     isLiked: false,
-    createdAt: new Date('2024-01-05').toISOString(),
-    updatedAt: new Date('2024-01-05').toISOString()
+    createdAt: new Date('2024-01-05').toISOString()
   },
   {
     _id: 'f12',
@@ -878,8 +813,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 119,
     isLiked: true,
-    createdAt: new Date('2024-01-04').toISOString(),
-    updatedAt: new Date('2024-01-04').toISOString()
+    createdAt: new Date('2024-01-04').toISOString()
   },
 
   // Wealth 类目 (10条)
@@ -895,8 +829,7 @@ const mockWishes: Wish[] = [
     },
     likes: 27,
     isLiked: false,
-    createdAt: new Date('2024-01-15').toISOString(),
-    updatedAt: new Date('2024-01-15').toISOString()
+    createdAt: new Date('2024-01-15').toISOString()
   },
   {
     _id: 'w2',
@@ -906,8 +839,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 165,
     isLiked: true,
-    createdAt: new Date('2024-01-14').toISOString(),
-    updatedAt: new Date('2024-01-14').toISOString()
+    createdAt: new Date('2024-01-14').toISOString()
   },
   {
     _id: 'w3',
@@ -921,8 +853,7 @@ const mockWishes: Wish[] = [
     },
     likes: 43,
     isLiked: false,
-    createdAt: new Date('2024-01-13').toISOString(),
-    updatedAt: new Date('2024-01-13').toISOString()
+    createdAt: new Date('2024-01-13').toISOString()
   },
   {
     _id: 'w4',
@@ -932,8 +863,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 78,
     isLiked: true,
-    createdAt: new Date('2024-01-12').toISOString(),
-    updatedAt: new Date('2024-01-12').toISOString()
+    createdAt: new Date('2024-01-12').toISOString()
   },
   {
     _id: 'w5',
@@ -947,8 +877,7 @@ const mockWishes: Wish[] = [
     },
     likes: 89,
     isLiked: false,
-    createdAt: new Date('2024-01-11').toISOString(),
-    updatedAt: new Date('2024-01-11').toISOString()
+    createdAt: new Date('2024-01-11').toISOString()
   },
   {
     _id: 'w6',
@@ -958,8 +887,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 134,
     isLiked: true,
-    createdAt: new Date('2024-01-10').toISOString(),
-    updatedAt: new Date('2024-01-10').toISOString()
+    createdAt: new Date('2024-01-10').toISOString()
   },
   {
     _id: 'w7',
@@ -973,8 +901,7 @@ const mockWishes: Wish[] = [
     },
     likes: 52,
     isLiked: false,
-    createdAt: new Date('2024-01-09').toISOString(),
-    updatedAt: new Date('2024-01-09').toISOString()
+    createdAt: new Date('2024-01-09').toISOString()
   },
   {
     _id: 'w8',
@@ -984,8 +911,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 67,
     isLiked: true,
-    createdAt: new Date('2024-01-08').toISOString(),
-    updatedAt: new Date('2024-01-08').toISOString()
+    createdAt: new Date('2024-01-08').toISOString()
   },
   {
     _id: 'w9',
@@ -999,8 +925,7 @@ const mockWishes: Wish[] = [
     },
     likes: 91,
     isLiked: false,
-    createdAt: new Date('2024-01-07').toISOString(),
-    updatedAt: new Date('2024-01-07').toISOString()
+    createdAt: new Date('2024-01-07').toISOString()
   },
   {
     _id: 'w10',
@@ -1010,8 +935,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 76,
     isLiked: true,
-    createdAt: new Date('2024-01-06').toISOString(),
-    updatedAt: new Date('2024-01-06').toISOString()
+    createdAt: new Date('2024-01-06').toISOString()
   },
 
   // Other 类目 (11条)
@@ -1027,8 +951,7 @@ const mockWishes: Wish[] = [
     },
     likes: 56,
     isLiked: true,
-    createdAt: new Date('2024-01-15').toISOString(),
-    updatedAt: new Date('2024-01-15').toISOString()
+    createdAt: new Date('2024-01-15').toISOString()
   },
   {
     _id: 'o2',
@@ -1038,8 +961,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 203,
     isLiked: false,
-    createdAt: new Date('2024-01-14').toISOString(),
-    updatedAt: new Date('2024-01-14').toISOString()
+    createdAt: new Date('2024-01-14').toISOString()
   },
   {
     _id: 'o3',
@@ -1053,8 +975,7 @@ const mockWishes: Wish[] = [
     },
     likes: 87,
     isLiked: true,
-    createdAt: new Date('2024-01-13').toISOString(),
-    updatedAt: new Date('2024-01-13').toISOString()
+    createdAt: new Date('2024-01-13').toISOString()
   },
   {
     _id: 'o4',
@@ -1064,8 +985,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 156,
     isLiked: false,
-    createdAt: new Date('2024-01-12').toISOString(),
-    updatedAt: new Date('2024-01-12').toISOString()
+    createdAt: new Date('2024-01-12').toISOString()
   },
   {
     _id: 'o5',
@@ -1079,8 +999,7 @@ const mockWishes: Wish[] = [
     },
     likes: 278,
     isLiked: true,
-    createdAt: new Date('2024-01-11').toISOString(),
-    updatedAt: new Date('2024-01-11').toISOString()
+    createdAt: new Date('2024-01-11').toISOString()
   },
   {
     _id: 'o6',
@@ -1090,8 +1009,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 134,
     isLiked: false,
-    createdAt: new Date('2024-01-10').toISOString(),
-    updatedAt: new Date('2024-01-10').toISOString()
+    createdAt: new Date('2024-01-10').toISOString()
   },
   {
     _id: 'o7',
@@ -1105,8 +1023,7 @@ const mockWishes: Wish[] = [
     },
     likes: 189,
     isLiked: true,
-    createdAt: new Date('2024-01-09').toISOString(),
-    updatedAt: new Date('2024-01-09').toISOString()
+    createdAt: new Date('2024-01-09').toISOString()
   },
   {
     _id: 'o8',
@@ -1116,8 +1033,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 167,
     isLiked: false,
-    createdAt: new Date('2024-01-08').toISOString(),
-    updatedAt: new Date('2024-01-08').toISOString()
+    createdAt: new Date('2024-01-08').toISOString()
   },
   {
     _id: 'o9',
@@ -1131,8 +1047,7 @@ const mockWishes: Wish[] = [
     },
     likes: 245,
     isLiked: true,
-    createdAt: new Date('2024-01-07').toISOString(),
-    updatedAt: new Date('2024-01-07').toISOString()
+    createdAt: new Date('2024-01-07').toISOString()
   },
   {
     _id: 'o10',
@@ -1142,8 +1057,7 @@ const mockWishes: Wish[] = [
     author: undefined,
     likes: 98,
     isLiked: false,
-    createdAt: new Date('2024-01-06').toISOString(),
-    updatedAt: new Date('2024-01-06').toISOString()
+    createdAt: new Date('2024-01-06').toISOString()
   },
   {
     _id: 'o11',
@@ -1157,8 +1071,7 @@ const mockWishes: Wish[] = [
     },
     likes: 176,
     isLiked: true,
-    createdAt: new Date('2024-01-05').toISOString(),
-    updatedAt: new Date('2024-01-05').toISOString()
+    createdAt: new Date('2024-01-05').toISOString()
   }
 ]
 
@@ -1220,7 +1133,6 @@ export const createMockWish = async (wishData: CreateWishRequest): Promise<Wish>
     likes: 0,
     isLiked: false,
     createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
   }
 
