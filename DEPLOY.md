@@ -15,7 +15,7 @@
 
 ### 首次设置（必需）
 
-为了让GitHub Actions自动部署到Vercel，你需要在GitHub仓库中配置以下Secrets：
+为了让GitHub Actions自动部署到Vercel，你需要在GitHub仓库中配置以下Secrets test：
 
 #### 1. 获取 Vercel Token
 
