@@ -2,8 +2,185 @@ import { Wish, CreateWishRequest, PaginatedResponse, WishCategory } from '../typ
 
 // Mock 心愿数据
 const mockWishes: Wish[] = [
+  // Health 类目 (15条)
   {
-    _id: '1',
+    _id: 'h1',
+    content: 'Wishing for good health and strength for my elderly parents. May they live many more happy years.',
+    category: 'health' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 42,
+    isLiked: true,
+    createdAt: new Date('2024-01-15').toISOString()
+  },
+  {
+    _id: 'h2',
+    content: 'Hoping to overcome my anxiety and build more confidence in social situations. Taking it one day at a time.',
+    category: 'health' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 38,
+    isLiked: false,
+    createdAt: new Date('2024-01-14').toISOString()
+  },
+  {
+    _id: 'h3',
+    content: 'I wish to recover fully from my surgery and get back to my active lifestyle. Feeling grateful for modern medicine.',
+    category: 'health' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Maria Santos',
+      avatar: 'https://ui-avatars.com/api/?name=Maria+Santos&background=10b981&color=fff'
+    },
+    likes: 55,
+    isLiked: true,
+    createdAt: new Date('2024-01-13').toISOString()
+  },
+  {
+    _id: 'h4',
+    content: 'May my grandmother find relief from her chronic pain and enjoy her golden years with dignity.',
+    category: 'health' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'James Wilson',
+      avatar: 'https://ui-avatars.com/api/?name=James+Wilson&background=06b6d4&color=fff'
+    },
+    likes: 67,
+    isLiked: false,
+    createdAt: new Date('2024-01-12').toISOString()
+  },
+  {
+    _id: 'h5',
+    content: 'Wishing to develop healthier eating habits and lose 20 pounds this year. Self-care is not selfish!',
+    category: 'health' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 29,
+    isLiked: true,
+    createdAt: new Date('2024-01-11').toISOString()
+  },
+  {
+    _id: 'h6',
+    content: 'I hope to find a cure for my rare condition and help other patients facing similar challenges.',
+    category: 'health' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Dr. Lisa Chen',
+      avatar: 'https://ui-avatars.com/api/?name=Dr+Lisa+Chen&background=8b5cf6&color=fff'
+    },
+    likes: 89,
+    isLiked: true,
+    createdAt: new Date('2024-01-10').toISOString()
+  },
+  {
+    _id: 'h7',
+    content: 'May all healthcare workers find strength and protection as they care for others every day.',
+    category: 'health' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 134,
+    isLiked: false,
+    createdAt: new Date('2024-01-09').toISOString()
+  },
+  {
+    _id: 'h8',
+    content: 'Wishing to break free from my addiction and rebuild my life with the support of loved ones.',
+    category: 'health' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 78,
+    isLiked: true,
+    createdAt: new Date('2024-01-08').toISOString()
+  },
+  {
+    _id: 'h9',
+    content: 'I hope to maintain my mental health while pursuing my demanding career. Balance is everything.',
+    category: 'health' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Alex Morgan',
+      avatar: 'https://ui-avatars.com/api/?name=Alex+Morgan&background=f59e0b&color=fff'
+    },
+    likes: 45,
+    isLiked: false,
+    createdAt: new Date('2024-01-07').toISOString()
+  },
+  {
+    _id: 'h10',
+    content: 'May my child overcome their learning disabilities and thrive in school with confidence.',
+    category: 'health' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Rachel Adams',
+      avatar: 'https://ui-avatars.com/api/?name=Rachel+Adams&background=ec4899&color=fff'
+    },
+    likes: 52,
+    isLiked: true,
+    createdAt: new Date('2024-01-06').toISOString()
+  },
+  {
+    _id: 'h11',
+    content: 'Wishing for better sleep and energy to be the best version of myself every day.',
+    category: 'health' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 31,
+    isLiked: false,
+    createdAt: new Date('2024-01-05').toISOString()
+  },
+  {
+    _id: 'h12',
+    content: 'I hope to build a stronger immune system and stay healthy throughout the winter season.',
+    category: 'health' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Tommy Lee',
+      avatar: 'https://ui-avatars.com/api/?name=Tommy+Lee&background=14b8a6&color=fff'
+    },
+    likes: 24,
+    isLiked: true,
+    createdAt: new Date('2024-01-04').toISOString()
+  },
+  {
+    _id: 'h13',
+    content: 'May everyone struggling with depression find hope, healing, and professional support.',
+    category: 'health' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 96,
+    isLiked: false,
+    createdAt: new Date('2024-01-03').toISOString()
+  },
+  {
+    _id: 'h14',
+    content: 'Wishing to complete my first marathon and prove to myself that anything is possible!',
+    category: 'health' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Sofia Rodriguez',
+      avatar: 'https://ui-avatars.com/api/?name=Sofia+Rodriguez&background=6366f1&color=fff'
+    },
+    likes: 37,
+    isLiked: true,
+    createdAt: new Date('2024-01-02').toISOString()
+  },
+  {
+    _id: 'h15',
+    content: 'I hope medical research continues to advance and brings hope to families facing rare diseases.',
+    category: 'health' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Dr. Michael Park',
+      avatar: 'https://ui-avatars.com/api/?name=Dr+Michael+Park&background=dc2626&color=fff'
+    },
+    likes: 73,
+    isLiked: false,
+    createdAt: new Date('2024-01-01').toISOString()
+  },
+
+  // Career 类目 (12条)
+  {
+    _id: 'c1',
     content: 'I hope to find my dream job in tech this year and make a positive impact on the world through innovation.',
     category: 'career' as WishCategory,
     isAnonymous: false,
@@ -16,89 +193,7 @@ const mockWishes: Wish[] = [
     createdAt: new Date('2024-01-15').toISOString()
   },
   {
-    _id: '2',
-    content: 'Wishing for good health and strength for my elderly parents. May they live many more happy years.',
-    category: 'health' as WishCategory,
-    isAnonymous: true,
-    author: null,
-    likes: 42,
-    isLiked: true,
-    createdAt: new Date('2024-01-14').toISOString()
-  },
-  {
-    _id: '3',
-    content: 'I wish to travel the world with my partner and create beautiful memories together. Starting with Japan! 🌸',
-    category: 'love' as WishCategory,
-    isAnonymous: false,
-    author: {
-      name: 'Michael Chen',
-      avatar: 'https://ui-avatars.com/api/?name=Michael+Chen&background=059669&color=fff'
-    },
-    likes: 18,
-    isLiked: false,
-    createdAt: new Date('2024-01-13').toISOString()
-  },
-  {
-    _id: '4',
-    content: 'Hope to graduate with honors and make my family proud. All those late nights studying will be worth it!',
-    category: 'study' as WishCategory,
-    isAnonymous: false,
-    author: {
-      name: 'Sarah Kim',
-      avatar: 'https://ui-avatars.com/api/?name=Sarah+Kim&background=dc2626&color=fff'
-    },
-    likes: 15,
-    isLiked: true,
-    createdAt: new Date('2024-01-12').toISOString()
-  },
-  {
-    _id: '5',
-    content: 'Wishing for peace and harmony in our family. May we always support each other through thick and thin.',
-    category: 'family' as WishCategory,
-    isAnonymous: true,
-    author: null,
-    likes: 31,
-    isLiked: false,
-    createdAt: new Date('2024-01-11').toISOString()
-  },
-  {
-    _id: '6',
-    content: 'I hope to save enough money to buy my first home and create a warm, welcoming space for my loved ones.',
-    category: 'wealth' as WishCategory,
-    isAnonymous: false,
-    author: {
-      name: 'David Rodriguez',
-      avatar: 'https://ui-avatars.com/api/?name=David+Rodriguez&background=ea580c&color=fff'
-    },
-    likes: 27,
-    isLiked: false,
-    createdAt: new Date('2024-01-10').toISOString()
-  },
-  {
-    _id: '7',
-    content: 'May our planet heal and recover. I wish for cleaner oceans, greener forests, and a sustainable future for all.',
-    category: 'other' as WishCategory,
-    isAnonymous: false,
-    author: {
-      name: 'Emma Green',
-      avatar: 'https://ui-avatars.com/api/?name=Emma+Green&background=16a34a&color=fff'
-    },
-    likes: 56,
-    isLiked: true,
-    createdAt: new Date('2024-01-09').toISOString()
-  },
-  {
-    _id: '8',
-    content: 'Hoping to overcome my anxiety and build more confidence in social situations. Taking it one day at a time.',
-    category: 'health' as WishCategory,
-    isAnonymous: true,
-    author: null,
-    likes: 38,
-    isLiked: false,
-    createdAt: new Date('2024-01-08').toISOString()
-  },
-  {
-    _id: '9',
+    _id: 'c2',
     content: 'I wish to launch my own startup and turn my innovative ideas into reality. The journey starts now!',
     category: 'career' as WishCategory,
     isAnonymous: false,
@@ -108,17 +203,828 @@ const mockWishes: Wish[] = [
     },
     likes: 22,
     isLiked: true,
+    createdAt: new Date('2024-01-14').toISOString()
+  },
+  {
+    _id: 'c3',
+    content: 'May I get promoted to senior manager and lead a team that creates meaningful change in our industry.',
+    category: 'career' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 41,
+    isLiked: false,
+    createdAt: new Date('2024-01-13').toISOString()
+  },
+  {
+    _id: 'c4',
+    content: 'Wishing to transition from finance to UX design and follow my creative passion at age 35.',
+    category: 'career' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Nina Williams',
+      avatar: 'https://ui-avatars.com/api/?name=Nina+Williams&background=059669&color=fff'
+    },
+    likes: 56,
+    isLiked: true,
+    createdAt: new Date('2024-01-12').toISOString()
+  },
+  {
+    _id: 'c5',
+    content: 'I hope to become a published author and inspire others through my writing about overcoming adversity.',
+    category: 'career' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Marcus Brown',
+      avatar: 'https://ui-avatars.com/api/?name=Marcus+Brown&background=ea580c&color=fff'
+    },
+    likes: 68,
+    isLiked: false,
+    createdAt: new Date('2024-01-11').toISOString()
+  },
+  {
+    _id: 'c6',
+    content: 'May I find the courage to quit my toxic job and pursue a career that aligns with my values.',
+    category: 'career' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 89,
+    isLiked: true,
+    createdAt: new Date('2024-01-10').toISOString()
+  },
+  {
+    _id: 'c7',
+    content: 'Wishing to become a successful teacher and make a difference in children\'s lives every day.',
+    category: 'career' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Emma Davis',
+      avatar: 'https://ui-avatars.com/api/?name=Emma+Davis&background=16a34a&color=fff'
+    },
+    likes: 35,
+    isLiked: false,
+    createdAt: new Date('2024-01-09').toISOString()
+  },
+  {
+    _id: 'c8',
+    content: 'I hope to master data science and use AI to solve complex problems in healthcare.',
+    category: 'career' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Kevin Zhang',
+      avatar: 'https://ui-avatars.com/api/?name=Kevin+Zhang&background=0891b2&color=fff'
+    },
+    likes: 47,
+    isLiked: true,
+    createdAt: new Date('2024-01-08').toISOString()
+  },
+  {
+    _id: 'c9',
+    content: 'May I build a successful consulting business and achieve financial independence by 40.',
+    category: 'career' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 33,
+    isLiked: false,
     createdAt: new Date('2024-01-07').toISOString()
   },
   {
-    _id: '10',
+    _id: 'c10',
+    content: 'Wishing to become a film director and tell stories that change how people see the world.',
+    category: 'career' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Zoe Martinez',
+      avatar: 'https://ui-avatars.com/api/?name=Zoe+Martinez&background=be185d&color=fff'
+    },
+    likes: 72,
+    isLiked: true,
+    createdAt: new Date('2024-01-06').toISOString()
+  },
+  {
+    _id: 'c11',
+    content: 'I hope to get into medical school and become a pediatric surgeon to help sick children.',
+    category: 'career' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'David Kim',
+      avatar: 'https://ui-avatars.com/api/?name=David+Kim&background=7c2d12&color=fff'
+    },
+    likes: 85,
+    isLiked: false,
+    createdAt: new Date('2024-01-05').toISOString()
+  },
+  {
+    _id: 'c12',
+    content: 'May I successfully pivot to remote work and achieve better work-life balance for my family.',
+    category: 'career' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 54,
+    isLiked: true,
+    createdAt: new Date('2024-01-04').toISOString()
+  },
+
+  // Love 类目 (13条)
+  {
+    _id: 'l1',
+    content: 'I wish to travel the world with my partner and create beautiful memories together. Starting with Japan! 🌸',
+    category: 'love' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Michael Chen',
+      avatar: 'https://ui-avatars.com/api/?name=Michael+Chen&background=059669&color=fff'
+    },
+    likes: 18,
+    isLiked: false,
+    createdAt: new Date('2024-01-15').toISOString()
+  },
+  {
+    _id: 'l2',
     content: 'Wishing to find true love and build a meaningful relationship with someone who understands and accepts me.',
     category: 'love' as WishCategory,
     isAnonymous: true,
     author: null,
     likes: 45,
     isLiked: false,
+    createdAt: new Date('2024-01-14').toISOString()
+  },
+  {
+    _id: 'l3',
+    content: 'May my marriage grow stronger each day and may we continue to support each other through all of life\'s challenges.',
+    category: 'love' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Sarah Mitchell',
+      avatar: 'https://ui-avatars.com/api/?name=Sarah+Mitchell&background=db2777&color=fff'
+    },
+    likes: 67,
+    isLiked: true,
+    createdAt: new Date('2024-01-13').toISOString()
+  },
+  {
+    _id: 'l4',
+    content: 'I wish to heal from my past heartbreak and open my heart to love again when the time is right.',
+    category: 'love' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 83,
+    isLiked: true,
+    createdAt: new Date('2024-01-12').toISOString()
+  },
+  {
+    _id: 'l5',
+    content: 'Hoping my long-distance relationship survives and we can finally be together in the same city soon.',
+    category: 'love' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Jake Miller',
+      avatar: 'https://ui-avatars.com/api/?name=Jake+Miller&background=2563eb&color=fff'
+    },
+    likes: 92,
+    isLiked: false,
+    createdAt: new Date('2024-01-11').toISOString()
+  },
+  {
+    _id: 'l6',
+    content: 'May I find the courage to propose to my girlfriend and start planning our future together.',
+    category: 'love' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 76,
+    isLiked: true,
+    createdAt: new Date('2024-01-10').toISOString()
+  },
+  {
+    _id: 'l7',
+    content: 'Wishing for all single parents to find love again and create beautiful blended families.',
+    category: 'love' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Lisa Thompson',
+      avatar: 'https://ui-avatars.com/api/?name=Lisa+Thompson&background=c2410c&color=fff'
+    },
+    likes: 58,
+    isLiked: false,
+    createdAt: new Date('2024-01-09').toISOString()
+  },
+  {
+    _id: 'l8',
+    content: 'I hope to overcome my social anxiety and put myself out there to meet someone special.',
+    category: 'love' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 64,
+    isLiked: true,
+    createdAt: new Date('2024-01-08').toISOString()
+  },
+  {
+    _id: 'l9',
+    content: 'May my partner and I successfully navigate couples therapy and rebuild our relationship stronger than before.',
+    category: 'love' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 49,
+    isLiked: false,
+    createdAt: new Date('2024-01-07').toISOString()
+  },
+  {
+    _id: 'l10',
+    content: 'Wishing to celebrate my 25th wedding anniversary with renewed love and appreciation for my spouse.',
+    category: 'love' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Robert Garcia',
+      avatar: 'https://ui-avatars.com/api/?name=Robert+Garcia&background=059669&color=fff'
+    },
+    likes: 105,
+    isLiked: true,
     createdAt: new Date('2024-01-06').toISOString()
+  },
+  {
+    _id: 'l11',
+    content: 'I hope to learn to love myself first before seeking love from others. Self-love is the foundation.',
+    category: 'love' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 127,
+    isLiked: false,
+    createdAt: new Date('2024-01-05').toISOString()
+  },
+  {
+    _id: 'l12',
+    content: 'May my teenage children find healthy, supportive relationships as they navigate young love.',
+    category: 'love' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Patricia Wilson',
+      avatar: 'https://ui-avatars.com/api/?name=Patricia+Wilson&background=7c3aed&color=fff'
+    },
+    likes: 41,
+    isLiked: true,
+    createdAt: new Date('2024-01-04').toISOString()
+  },
+  {
+    _id: 'l13',
+    content: 'Wishing for the strength to end a toxic relationship and find someone who truly values me.',
+    category: 'love' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 98,
+    isLiked: false,
+    createdAt: new Date('2024-01-03').toISOString()
+  },
+
+  // Study 类目 (14条)
+  {
+    _id: 's1',
+    content: 'Hope to graduate with honors and make my family proud. All those late nights studying will be worth it!',
+    category: 'study' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Sarah Kim',
+      avatar: 'https://ui-avatars.com/api/?name=Sarah+Kim&background=dc2626&color=fff'
+    },
+    likes: 15,
+    isLiked: true,
+    createdAt: new Date('2024-01-15').toISOString()
+  },
+  {
+    _id: 's2',
+    content: 'Hope to master three new programming languages this year and contribute to open source projects.',
+    category: 'study' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Chris Park',
+      avatar: 'https://ui-avatars.com/api/?name=Chris+Park&background=0891b2&color=fff'
+    },
+    likes: 19,
+    isLiked: false,
+    createdAt: new Date('2024-01-14').toISOString()
+  },
+  {
+    _id: 's3',
+    content: 'Wishing to get accepted into my dream university and study environmental science to help save our planet.',
+    category: 'study' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Maya Patel',
+      avatar: 'https://ui-avatars.com/api/?name=Maya+Patel&background=16a34a&color=fff'
+    },
+    likes: 73,
+    isLiked: true,
+    createdAt: new Date('2024-01-13').toISOString()
+  },
+  {
+    _id: 's4',
+    content: 'I hope to finish my PhD thesis this year and defend it successfully. Five years of research coming together!',
+    category: 'study' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 86,
+    isLiked: false,
+    createdAt: new Date('2024-01-12').toISOString()
+  },
+  {
+    _id: 's5',
+    content: 'May I pass my medical board exams and begin my residency at a top hospital.',
+    category: 'study' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Ahmed Hassan',
+      avatar: 'https://ui-avatars.com/api/?name=Ahmed+Hassan&background=be185d&color=fff'
+    },
+    likes: 94,
+    isLiked: true,
+    createdAt: new Date('2024-01-11').toISOString()
+  },
+  {
+    _id: 's6',
+    content: 'Wishing to learn Spanish fluently and connect with my heritage through language and culture.',
+    category: 'study' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 42,
+    isLiked: false,
+    createdAt: new Date('2024-01-10').toISOString()
+  },
+  {
+    _id: 's7',
+    content: 'I hope to get my GED at 45 and show my kids that it\'s never too late to pursue education.',
+    category: 'study' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Maria Rodriguez',
+      avatar: 'https://ui-avatars.com/api/?name=Maria+Rodriguez&background=ea580c&color=fff'
+    },
+    likes: 156,
+    isLiked: true,
+    createdAt: new Date('2024-01-09').toISOString()
+  },
+  {
+    _id: 's8',
+    content: 'May I successfully complete my coding bootcamp and transition into a tech career at 30.',
+    category: 'study' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 67,
+    isLiked: false,
+    createdAt: new Date('2024-01-08').toISOString()
+  },
+  {
+    _id: 's9',
+    content: 'Wishing to ace my SATs and get into a good college with a scholarship for my family.',
+    category: 'study' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Tyler Johnson',
+      avatar: 'https://ui-avatars.com/api/?name=Tyler+Johnson&background=6366f1&color=fff'
+    },
+    likes: 48,
+    isLiked: true,
+    createdAt: new Date('2024-01-07').toISOString()
+  },
+  {
+    _id: 's10',
+    content: 'I hope to earn my MBA while working full-time and raise my family. Time management is everything!',
+    category: 'study' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 72,
+    isLiked: false,
+    createdAt: new Date('2024-01-06').toISOString()
+  },
+  {
+    _id: 's11',
+    content: 'May I get certified in digital marketing and help small businesses grow their online presence.',
+    category: 'study' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Jennifer Lee',
+      avatar: 'https://ui-avatars.com/api/?name=Jennifer+Lee&background=0891b2&color=fff'
+    },
+    likes: 35,
+    isLiked: true,
+    createdAt: new Date('2024-01-05').toISOString()
+  },
+  {
+    _id: 's12',
+    content: 'Wishing to overcome my dyslexia challenges and excel in my literature studies.',
+    category: 'study' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 89,
+    isLiked: false,
+    createdAt: new Date('2024-01-04').toISOString()
+  },
+  {
+    _id: 's13',
+    content: 'I hope to study abroad in Italy and immerse myself in art history while learning Italian.',
+    category: 'study' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Elena Rossi',
+      avatar: 'https://ui-avatars.com/api/?name=Elena+Rossi&background=dc2626&color=fff'
+    },
+    likes: 53,
+    isLiked: true,
+    createdAt: new Date('2024-01-03').toISOString()
+  },
+  {
+    _id: 's14',
+    content: 'May I successfully balance online learning with my job and complete my degree in computer science.',
+    category: 'study' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 44,
+    isLiked: false,
+    createdAt: new Date('2024-01-02').toISOString()
+  },
+
+  // Family 类目 (12条)
+  {
+    _id: 'f1',
+    content: 'Wishing for peace and harmony in our family. May we always support each other through thick and thin.',
+    category: 'family' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 31,
+    isLiked: false,
+    createdAt: new Date('2024-01-15').toISOString()
+  },
+  {
+    _id: 'f2',
+    content: 'I wish for my children to grow up happy, healthy, and kind. May they always follow their dreams.',
+    category: 'family' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Jennifer Martinez',
+      avatar: 'https://ui-avatars.com/api/?name=Jennifer+Martinez&background=be185d&color=fff'
+    },
+    likes: 33,
+    isLiked: true,
+    createdAt: new Date('2024-01-14').toISOString()
+  },
+  {
+    _id: 'f3',
+    content: 'May my family heal from the wounds of the past and find forgiveness and understanding.',
+    category: 'family' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 78,
+    isLiked: false,
+    createdAt: new Date('2024-01-13').toISOString()
+  },
+  {
+    _id: 'f4',
+    content: 'Wishing to adopt a child and give them all the love and opportunities they deserve.',
+    category: 'family' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Mark Taylor',
+      avatar: 'https://ui-avatars.com/api/?name=Mark+Taylor&background=059669&color=fff'
+    },
+    likes: 124,
+    isLiked: true,
+    createdAt: new Date('2024-01-12').toISOString()
+  },
+  {
+    _id: 'f5',
+    content: 'I hope my teenage son finds his path in life and knows that I believe in him no matter what.',
+    category: 'family' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Sandra Williams',
+      avatar: 'https://ui-avatars.com/api/?name=Sandra+Williams&background=7c3aed&color=fff'
+    },
+    likes: 67,
+    isLiked: false,
+    createdAt: new Date('2024-01-11').toISOString()
+  },
+  {
+    _id: 'f6',
+    content: 'May my aging parents maintain their independence and dignity as they enter their golden years.',
+    category: 'family' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 95,
+    isLiked: true,
+    createdAt: new Date('2024-01-10').toISOString()
+  },
+  {
+    _id: 'f7',
+    content: 'Wishing to reconnect with my estranged sister and rebuild the bond we had as children.',
+    category: 'family' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 87,
+    isLiked: false,
+    createdAt: new Date('2024-01-09').toISOString()
+  },
+  {
+    _id: 'f8',
+    content: 'I hope to start a family of my own and create the loving home I always dreamed of.',
+    category: 'family' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Anna Chen',
+      avatar: 'https://ui-avatars.com/api/?name=Anna+Chen&background=db2777&color=fff'
+    },
+    likes: 56,
+    isLiked: true,
+    createdAt: new Date('2024-01-08').toISOString()
+  },
+  {
+    _id: 'f9',
+    content: 'May all military families be reunited safely and find strength during deployments.',
+    category: 'family' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 142,
+    isLiked: false,
+    createdAt: new Date('2024-01-07').toISOString()
+  },
+  {
+    _id: 'f10',
+    content: 'Wishing for my special needs child to find acceptance and friendship in their new school.',
+    category: 'family' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Michael Davis',
+      avatar: 'https://ui-avatars.com/api/?name=Michael+Davis&background=ea580c&color=fff'
+    },
+    likes: 108,
+    isLiked: true,
+    createdAt: new Date('2024-01-06').toISOString()
+  },
+  {
+    _id: 'f11',
+    content: 'I hope to teach my children about their cultural heritage and keep our traditions alive.',
+    category: 'family' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Priya Sharma',
+      avatar: 'https://ui-avatars.com/api/?name=Priya+Sharma&background=16a34a&color=fff'
+    },
+    likes: 74,
+    isLiked: false,
+    createdAt: new Date('2024-01-05').toISOString()
+  },
+  {
+    _id: 'f12',
+    content: 'May my family overcome financial hardship and find stability and security together.',
+    category: 'family' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 119,
+    isLiked: true,
+    createdAt: new Date('2024-01-04').toISOString()
+  },
+
+  // Wealth 类目 (10条)
+  {
+    _id: 'w1',
+    content: 'I hope to save enough money to buy my first home and create a warm, welcoming space for my loved ones.',
+    category: 'wealth' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'David Rodriguez',
+      avatar: 'https://ui-avatars.com/api/?name=David+Rodriguez&background=ea580c&color=fff'
+    },
+    likes: 27,
+    isLiked: false,
+    createdAt: new Date('2024-01-15').toISOString()
+  },
+  {
+    _id: 'w2',
+    content: 'Wishing to pay off all my student loans and start fresh with financial freedom.',
+    category: 'wealth' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 165,
+    isLiked: true,
+    createdAt: new Date('2024-01-14').toISOString()
+  },
+  {
+    _id: 'w3',
+    content: 'May I build a successful investment portfolio and secure my family\'s financial future.',
+    category: 'wealth' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Rebecca Thompson',
+      avatar: 'https://ui-avatars.com/api/?name=Rebecca+Thompson&background=059669&color=fff'
+    },
+    likes: 43,
+    isLiked: false,
+    createdAt: new Date('2024-01-13').toISOString()
+  },
+  {
+    _id: 'w4',
+    content: 'I hope to start my own business and achieve financial independence through entrepreneurship.',
+    category: 'wealth' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 78,
+    isLiked: true,
+    createdAt: new Date('2024-01-12').toISOString()
+  },
+  {
+    _id: 'w5',
+    content: 'Wishing to save enough for my children\'s college education so they can pursue their dreams debt-free.',
+    category: 'wealth' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Carlos Mendez',
+      avatar: 'https://ui-avatars.com/api/?name=Carlos+Mendez&background=7c3aed&color=fff'
+    },
+    likes: 89,
+    isLiked: false,
+    createdAt: new Date('2024-01-11').toISOString()
+  },
+  {
+    _id: 'w6',
+    content: 'May I overcome my financial struggles and provide a stable life for my family.',
+    category: 'wealth' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 134,
+    isLiked: true,
+    createdAt: new Date('2024-01-10').toISOString()
+  },
+  {
+    _id: 'w7',
+    content: 'I hope to retire comfortably at 65 and travel the world with my spouse.',
+    category: 'wealth' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Patricia Moore',
+      avatar: 'https://ui-avatars.com/api/?name=Patricia+Moore&background=db2777&color=fff'
+    },
+    likes: 52,
+    isLiked: false,
+    createdAt: new Date('2024-01-09').toISOString()
+  },
+  {
+    _id: 'w8',
+    content: 'Wishing to learn about investing and grow my wealth wisely for the future.',
+    category: 'wealth' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 67,
+    isLiked: true,
+    createdAt: new Date('2024-01-08').toISOString()
+  },
+  {
+    _id: 'w9',
+    content: 'May I find a better-paying job that also brings me fulfillment and purpose.',
+    category: 'wealth' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'James Wilson',
+      avatar: 'https://ui-avatars.com/api/?name=James+Wilson&background=16a34a&color=fff'
+    },
+    likes: 91,
+    isLiked: false,
+    createdAt: new Date('2024-01-07').toISOString()
+  },
+  {
+    _id: 'w10',
+    content: 'I hope to become debt-free and teach my children about financial responsibility.',
+    category: 'wealth' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 76,
+    isLiked: true,
+    createdAt: new Date('2024-01-06').toISOString()
+  },
+
+  // Other 类目 (11条)
+  {
+    _id: 'o1',
+    content: 'May our planet heal and recover. I wish for cleaner oceans, greener forests, and a sustainable future for all.',
+    category: 'other' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Emma Green',
+      avatar: 'https://ui-avatars.com/api/?name=Emma+Green&background=16a34a&color=fff'
+    },
+    likes: 56,
+    isLiked: true,
+    createdAt: new Date('2024-01-15').toISOString()
+  },
+  {
+    _id: 'o2',
+    content: 'Wishing for world peace and an end to all conflicts that tear families and communities apart.',
+    category: 'other' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 203,
+    isLiked: false,
+    createdAt: new Date('2024-01-14').toISOString()
+  },
+  {
+    _id: 'o3',
+    content: 'I hope technology continues to advance in ways that bring people together rather than divide us.',
+    category: 'other' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Dr. Alan Turing',
+      avatar: 'https://ui-avatars.com/api/?name=Dr+Alan+Turing&background=6366f1&color=fff'
+    },
+    likes: 87,
+    isLiked: true,
+    createdAt: new Date('2024-01-13').toISOString()
+  },
+  {
+    _id: 'o4',
+    content: 'May all homeless individuals find shelter, safety, and the support they need to rebuild their lives.',
+    category: 'other' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 156,
+    isLiked: false,
+    createdAt: new Date('2024-01-12').toISOString()
+  },
+  {
+    _id: 'o5',
+    content: 'Wishing for an end to hunger and poverty worldwide. Everyone deserves basic human dignity.',
+    category: 'other' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Mother Teresa Foundation',
+      avatar: 'https://ui-avatars.com/api/?name=MT+Foundation&background=be185d&color=fff'
+    },
+    likes: 278,
+    isLiked: true,
+    createdAt: new Date('2024-01-11').toISOString()
+  },
+  {
+    _id: 'o6',
+    content: 'I hope future generations inherit a world with clean air, pure water, and abundant wildlife.',
+    category: 'other' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 134,
+    isLiked: false,
+    createdAt: new Date('2024-01-10').toISOString()
+  },
+  {
+    _id: 'o7',
+    content: 'May all children have access to quality education regardless of their socioeconomic background.',
+    category: 'other' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'UNESCO Ambassador',
+      avatar: 'https://ui-avatars.com/api/?name=UNESCO+Ambassador&background=059669&color=fff'
+    },
+    likes: 189,
+    isLiked: true,
+    createdAt: new Date('2024-01-09').toISOString()
+  },
+  {
+    _id: 'o8',
+    content: 'Wishing for greater understanding and acceptance between people of different cultures and beliefs.',
+    category: 'other' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 167,
+    isLiked: false,
+    createdAt: new Date('2024-01-08').toISOString()
+  },
+  {
+    _id: 'o9',
+    content: 'I hope scientific research leads to cures for cancer, Alzheimer\'s, and other devastating diseases.',
+    category: 'other' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Research Scientist',
+      avatar: 'https://ui-avatars.com/api/?name=Research+Scientist&background=dc2626&color=fff'
+    },
+    likes: 245,
+    isLiked: true,
+    createdAt: new Date('2024-01-07').toISOString()
+  },
+  {
+    _id: 'o10',
+    content: 'May social media become a force for good, spreading kindness and authentic connections.',
+    category: 'other' as WishCategory,
+    isAnonymous: true,
+    author: null,
+    likes: 98,
+    isLiked: false,
+    createdAt: new Date('2024-01-06').toISOString()
+  },
+  {
+    _id: 'o11',
+    content: 'Wishing for all animals to be protected from cruelty and live in their natural habitats safely.',
+    category: 'other' as WishCategory,
+    isAnonymous: false,
+    author: {
+      name: 'Wildlife Protector',
+      avatar: 'https://ui-avatars.com/api/?name=Wildlife+Protector&background=0891b2&color=fff'
+    },
+    likes: 176,
+    isLiked: true,
+    createdAt: new Date('2024-01-05').toISOString()
   }
 ]
 
@@ -203,5 +1109,29 @@ export const toggleMockLike = async (wishId: string): Promise<{ likes: number; i
   return {
     likes: wish.likes,
     isLiked: wish.isLiked
+  }
+}
+
+// 获取统计数据
+export const getMockStats = async () => {
+  await delay(300)
+
+  const totalWishes = mockWishes.length
+  const totalLikes = mockWishes.reduce((sum, wish) => sum + wish.likes, 0)
+  const userWishes = mockWishes.filter(wish => !wish.isAnonymous && wish.author?.name === 'Current User')
+
+  return {
+    totalWishes,
+    totalLikes,
+    userWishes: userWishes.length,
+    categoryCounts: {
+      health: mockWishes.filter(w => w.category === 'health').length,
+      career: mockWishes.filter(w => w.category === 'career').length,
+      love: mockWishes.filter(w => w.category === 'love').length,
+      study: mockWishes.filter(w => w.category === 'study').length,
+      family: mockWishes.filter(w => w.category === 'family').length,
+      wealth: mockWishes.filter(w => w.category === 'wealth').length,
+      other: mockWishes.filter(w => w.category === 'other').length
+    }
   }
 }
