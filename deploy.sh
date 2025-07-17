@@ -188,12 +188,26 @@ deploy_to_vercel() {
     fi
     
     # 执行部署命令
+    local deployment_output
     local deployment_url
-    deployment_url=$(eval "$deploy_cmd" 2>&1 | tee /dev/tty | grep -o 'https://[^[:space:]]*' | tail -1)
+    deployment_output=$(eval "$deploy_cmd" 2>&1)
     
-    if [ $? -eq 0 ] && [ -n "$deployment_url" ]; then
+    if [ $? -eq 0 ]; then
+        # 提取部署URL - 查找包含vercel.app的URL
+        deployment_url=$(printf "%s" "$deployment_output" | grep -o 'https://[^[:space:]]*\.vercel\.app[^[:space:]]*' | tail -1)
+        
+        # 如果没有找到vercel.app的URL，尝试查找Production行中的URL
+        if [ -z "$deployment_url" ]; then
+            deployment_url=$(printf "%s" "$deployment_output" | grep "Production:" | grep -o 'https://[^[:space:]]*' | head -1)
+        fi
+        
         log_success "部署成功！"
-        log_success "部署地址：$deployment_url"
+        
+        if [ -n "$deployment_url" ]; then
+            log_success "部署地址：$deployment_url"
+        else
+            log_success "部署完成，请检查 Vercel Dashboard 获取部署地址"
+        fi
         
         # 如果是生产环境，还显示自定义域名
         if [ "$env" = "production" ]; then
@@ -201,6 +215,7 @@ deploy_to_vercel() {
         fi
     else
         log_error "部署失败"
+        printf "%s\n" "$deployment_output"
         exit 1
     fi
     

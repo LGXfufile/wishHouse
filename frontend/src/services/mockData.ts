@@ -1220,7 +1220,6 @@ export const createMockWish = async (wishData: CreateWishRequest): Promise<Wish>
     likes: 0,
     isLiked: false,
     createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
   }
 
