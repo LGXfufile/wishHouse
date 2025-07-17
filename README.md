@@ -18,9 +18,19 @@ node simple-server.js
 cd frontend && npm run dev
 ```
 
+### 方法三：部署到 Vercel
+```bash
+# 测试部署准备
+./test-deploy.sh
+
+# 执行部署
+./deploy.sh
+```
+
 ### 访问地址
 - **前端网站**: http://localhost:3001
 - **后端API**: http://localhost:5000
+- **Vercel部署**: 见部署脚本输出
 
 ## 🎉 功能特色
 

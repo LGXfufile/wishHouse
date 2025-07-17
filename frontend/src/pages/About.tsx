@@ -1,10 +1,11 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { Star, Heart, Globe, Users, Sparkles, Shield } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Heart, Star, Users, Globe, Sparkles, Target } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const About: React.FC = () => {
-  const { t } = useTranslation()
+  // Remove unused t variable
+  useTranslation()
 
   const features = [
     {
@@ -33,7 +34,7 @@ const About: React.FC = () => {
       description: "Share your deepest wishes anonymously if you prefer privacy."
     },
     {
-      icon: <Shield className="w-8 h-8 text-indigo-500" />,
+      icon: <Target className="w-8 h-8 text-indigo-500" />,
       title: "Safe Space",
       description: "A moderated, positive environment where all wishes are welcomed and respected."
     }

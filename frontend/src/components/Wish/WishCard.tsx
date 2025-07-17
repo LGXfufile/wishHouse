@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Heart, Share2, User, Calendar, Sparkles } from 'lucide-react'
+import { Heart, Share2, User, Calendar } from 'lucide-react'
 import { format } from 'date-fns'
 import { Wish } from '../../types'
 import { useToggleLike } from '../../hooks/useWishes'

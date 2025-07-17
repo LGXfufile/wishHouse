@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Globe, Heart, Star } from 'lucide-react'
+import { Heart, Star } from 'lucide-react'
 import LanguageSwitcher from '../Common/LanguageSwitcher'
 
 const Header: React.FC = () => {
