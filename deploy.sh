@@ -193,12 +193,12 @@ deploy_to_vercel() {
     deployment_output=$(eval "$deploy_cmd" 2>&1)
     
     if [ $? -eq 0 ]; then
-        # 提取部署URL - 查找包含vercel.app的URL
-        deployment_url=$(printf "%s" "$deployment_output" | grep -o 'https://[^[:space:]]*\.vercel\.app[^[:space:]]*' | tail -1)
+        # 提取部署URL - 查找包含vercel.app的URL，并清理可能的额外文字
+        deployment_url=$(printf "%s" "$deployment_output" | grep -o 'https://[^[:space:]]*\.vercel\.app' | tail -1)
         
         # 如果没有找到vercel.app的URL，尝试查找Production行中的URL
         if [ -z "$deployment_url" ]; then
-            deployment_url=$(printf "%s" "$deployment_output" | grep "Production:" | grep -o 'https://[^[:space:]]*' | head -1)
+            deployment_url=$(printf "%s" "$deployment_output" | grep "Production:" | grep -o 'https://[^[:space:]]*\.vercel\.app' | head -1)
         fi
         
         log_success "部署成功！"
