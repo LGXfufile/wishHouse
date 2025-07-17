@@ -1,0 +1,67 @@
+{
+  "app": {
+    "title": "Wish Lighthouse",
+    "subtitle": "Share your wishes and blessings with the world"
+  },
+  "nav": {
+    "home": "Home",
+    "wishWall": "Wish Wall",
+    "myWishes": "My Wishes",
+    "about": "About"
+  },
+  "common": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "share": "Share",
+    "like": "Light Up",
+    "anonymous": "Anonymous",
+    "loading": "Loading...",
+    "viewMore": "View More"
+  },
+  "wish": {
+    "createTitle": "Make a Wish",
+    "content": "Wish Content",
+    "contentPlaceholder": "Share your heartfelt wishes...",
+    "category": "Category",
+    "categories": {
+      "health": "Health",
+      "career": "Career",
+      "love": "Love",
+      "study": "Study",
+      "family": "Family",
+      "wealth": "Wealth",
+      "other": "Other"
+    },
+    "isAnonymous": "Post Anonymously",
+    "submitSuccess": "Wish submitted successfully!",
+    "shareCard": "Share Wish Card",
+    "downloadCard": "Download Card",
+    "createdAt": "Created at",
+    "lightUp": "Light Up",
+    "lightUps": "Light Ups"
+  },
+  "wishWall": {
+    "title": "Wish Wall",
+    "subtitle": "Discover and support wishes from around the world",
+    "filterAll": "All",
+    "sortByTime": "Latest",
+    "sortByPopular": "Most Popular",
+    "noWishes": "No wishes found",
+    "loadMore": "Load More"
+  },
+  "profile": {
+    "title": "My Profile",
+    "myWishes": "My Wishes",
+    "totalWishes": "Total Wishes",
+    "totalLikes": "Total Light Ups Received",
+    "settings": "Settings",
+    "language": "Language"
+  },
+  "languages": {
+    "en": "English",
+    "zh": "中文"
+  }
+} 

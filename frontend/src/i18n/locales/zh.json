@@ -1,0 +1,67 @@
+{
+  "app": {
+    "title": "心愿灯塔",
+    "subtitle": "与世界分享你的愿望和祝福"
+  },
+  "nav": {
+    "home": "首页",
+    "wishWall": "愿望墙",
+    "myWishes": "我的愿望",
+    "about": "关于"
+  },
+  "common": {
+    "submit": "提交",
+    "cancel": "取消",
+    "save": "保存",
+    "edit": "编辑",
+    "delete": "删除",
+    "share": "分享",
+    "like": "点亮",
+    "anonymous": "匿名",
+    "loading": "加载中...",
+    "viewMore": "查看更多"
+  },
+  "wish": {
+    "createTitle": "许下心愿",
+    "content": "愿望内容",
+    "contentPlaceholder": "分享你内心的愿望...",
+    "category": "分类",
+    "categories": {
+      "health": "健康",
+      "career": "事业",
+      "love": "爱情",
+      "study": "学业",
+      "family": "家庭",
+      "wealth": "财富",
+      "other": "其他"
+    },
+    "isAnonymous": "匿名发布",
+    "submitSuccess": "愿望提交成功！",
+    "shareCard": "分享愿望卡片",
+    "downloadCard": "下载卡片",
+    "createdAt": "创建于",
+    "lightUp": "点亮",
+    "lightUps": "点亮数"
+  },
+  "wishWall": {
+    "title": "愿望墙",
+    "subtitle": "发现并支持来自世界各地的愿望",
+    "filterAll": "全部",
+    "sortByTime": "最新",
+    "sortByPopular": "最热门",
+    "noWishes": "暂无愿望",
+    "loadMore": "加载更多"
+  },
+  "profile": {
+    "title": "我的资料",
+    "myWishes": "我的愿望",
+    "totalWishes": "愿望总数",
+    "totalLikes": "获得点亮总数",
+    "settings": "设置",
+    "language": "语言"
+  },
+  "languages": {
+    "en": "English",
+    "zh": "中文"
+  }
+} 
