@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Heart, Star } from 'lucide-react'
+import { Heart, Star, BarChart3 } from 'lucide-react'
 import LanguageSwitcher from '../Common/LanguageSwitcher'
 
 const Header: React.FC = () => {
@@ -66,6 +66,18 @@ const Header: React.FC = () => {
               }`}
             >
               {t('nav.about')}
+            </Link>
+            <Link
+              to="/seo-analysis"
+              className={`font-medium transition-colors flex items-center gap-1 ${
+                isActive('/seo-analysis') 
+                  ? 'text-primary-600' 
+                  : 'text-gray-600 hover:text-primary-500'
+              }`}
+              title="SEO Analysis"
+            >
+              <BarChart3 className="w-4 h-4" />
+              <span className="hidden lg:inline">SEO</span>
             </Link>
           </div>
 

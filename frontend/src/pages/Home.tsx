@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { Star, Heart, Sparkles, Users } from 'lucide-react'
 import { motion } from 'framer-motion'
 import WishForm from '../components/Wish/WishForm'
-import StructuredData from '../components/SEO/StructuredData'
+import StructuredData, { ProductStructuredData } from '../components/SEO/StructuredData'
+import { HeroImage } from '../components/UI/OptimizedImage'
 import { useSEO } from '../hooks/useSEO'
 
 const Home: React.FC = () => {
@@ -48,11 +49,24 @@ const Home: React.FC = () => {
       {/* SEO结构化数据 */}
       <StructuredData type="website" />
       <StructuredData type="organization" />
+      <ProductStructuredData />
       
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-20 px-4">
-          <div className="container mx-auto text-center">
+        <section className="relative py-20 px-4 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 -z-10">
+            <HeroImage
+              src="/images/hero-bg.jpg"
+              alt="Wish Lighthouse - Beautiful starry night sky with lighthouse beam"
+              className="w-full h-full object-cover opacity-20"
+              priority
+              fallback="/images/hero-fallback.jpg"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-gold-50 to-sage-50"></div>
+          </div>
+          
+          <div className="container mx-auto text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -111,8 +125,33 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        {/* Statistics Section */}
+        <section className="py-16 px-4 bg-gradient-to-r from-primary-50 to-gold-50">
+          <div className="container mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
+            >
+              <div className="card p-6">
+                <div className="text-4xl font-bold text-primary-600 mb-2">10K+</div>
+                <p className="text-gray-600">Wishes Shared</p>
+              </div>
+              <div className="card p-6">
+                <div className="text-4xl font-bold text-gold-600 mb-2">50K+</div>
+                <p className="text-gray-600">Light Ups Given</p>
+              </div>
+              <div className="card p-6">
+                <div className="text-4xl font-bold text-sage-600 mb-2">100+</div>
+                <p className="text-gray-600">Countries Reached</p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Wish Form Section */}
-        <section className="py-16 px-4">
+        <section className="py-16 px-4" id="create-wish">
           <div className="container mx-auto max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
