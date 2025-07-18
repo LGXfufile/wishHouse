@@ -98,7 +98,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(ico|png|jpg|jpeg|gif|svg|webp))",
+      "source": "/favicon.ico",
       "headers": [
         {
           "key": "Cache-Control",
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(js|css|woff|woff2|ttf))",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
