@@ -8,7 +8,9 @@ import MyWishes from './pages/MyWishes'
 import About from './pages/About'
 import SEOAnalysis from './pages/SEOAnalysis'
 import SEODashboard from './pages/SEODashboard'
+import FeishuDemo from './pages/FeishuDemo'
 import { usePerformanceMonitor } from './hooks/usePerformanceMonitor'
+import { useUserTracking } from './hooks/useUserTracking'
 import { useEffect } from 'react'
 
 const queryClient = new QueryClient({
@@ -23,6 +25,9 @@ const queryClient = new QueryClient({
 function AppContent() {
   // 集成性能监控
   const { reportPerformanceIssue } = usePerformanceMonitor()
+  
+  // 集成用户行为追踪
+  const { trackCustomEvent } = useUserTracking()
 
   useEffect(() => {
     // 监控路由变化性能
@@ -38,6 +43,13 @@ function AppContent() {
               TTFB: navigation.responseStart - navigation.requestStart
             }
           })
+          
+          // 同时发送到飞书
+          trackCustomEvent('performance_issue', {
+            type: 'slow-loading',
+            loadTime: navigation.loadEventEnd - navigation.fetchStart,
+            ttfb: navigation.responseStart - navigation.requestStart
+          })
         }
       }, 1000)
     }
@@ -48,7 +60,19 @@ function AppContent() {
     return () => {
       window.removeEventListener('beforeunload', handleRouteChange)
     }
-  }, [reportPerformanceIssue])
+  }, [reportPerformanceIssue, trackCustomEvent])
+
+  // 监控应用启动
+  useEffect(() => {
+    trackCustomEvent('app_initialized', {
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      viewport: {
+        width: window.innerWidth,
+        height: window.innerHeight
+      }
+    })
+  }, [trackCustomEvent])
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -61,6 +85,7 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/seo-analysis" element={<SEOAnalysis />} />
           <Route path="/seo-dashboard" element={<SEODashboard />} />
+          <Route path="/feishu-demo" element={<FeishuDemo />} />
         </Routes>
       </main>
       <Footer />
