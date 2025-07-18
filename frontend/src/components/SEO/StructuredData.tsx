@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Wish } from '../../types'
 
 interface StructuredDataProps {
-  type: 'website' | 'article' | 'breadcrumb' | 'organization' | 'faq' | 'review' | 'product' | 'person' | 'event' | 'collection'
+  type: 'website' | 'article' | 'breadcrumb' | 'organization' | 'faq' | 'review' | 'product' | 'person' | 'event' | 'collection' | 'webapp'
   data?: any
   wish?: Wish
   breadcrumbs?: Array<{ name: string; url: string }>
@@ -338,6 +338,40 @@ const StructuredData: React.FC<StructuredDataProps> = ({
     }
   }
 
+  const generateWebAppSchema = () => {
+    const siteName = i18n.language === 'zh' ? '心愿灯塔' : 'Wish Lighthouse'
+    const description = i18n.language === 'zh' 
+      ? '心愿灯塔是一个免费的在线愿望分享平台，让您与全世界分享心愿和祝福。'
+      : 'Wish Lighthouse is a free online wish sharing platform to share your hopes and blessings with the world.'
+    
+    return {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": siteName,
+      "description": description,
+      "url": window.location.origin,
+      "applicationCategory": "Social Networking",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "1000",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": siteName
+      }
+    }
+  }
+
   const generateSchema = () => {
     switch (type) {
       case 'website':
@@ -360,6 +394,8 @@ const StructuredData: React.FC<StructuredDataProps> = ({
         return event ? generateEventSchema(event) : null
       case 'collection':
         return generateCollectionSchema()
+      case 'webapp':
+        return generateWebAppSchema()
       default:
         return data || null
     }

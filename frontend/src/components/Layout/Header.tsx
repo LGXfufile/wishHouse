@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Heart, Star, BarChart3 } from 'lucide-react'
+import { Heart, Star, BarChart3, Bot } from 'lucide-react'
 import LanguageSwitcher from '../Common/LanguageSwitcher'
 
 const Header: React.FC = () => {
@@ -67,18 +67,39 @@ const Header: React.FC = () => {
             >
               {t('nav.about')}
             </Link>
-            <Link
-              to="/seo-analysis"
-              className={`font-medium transition-colors flex items-center gap-1 ${
-                isActive('/seo-analysis') 
-                  ? 'text-primary-600' 
-                  : 'text-gray-600 hover:text-primary-500'
-              }`}
-              title="SEO Analysis"
-            >
-              <BarChart3 className="w-4 h-4" />
-              <span className="hidden lg:inline">SEO</span>
-            </Link>
+            
+            {/* SEO Tools Dropdown */}
+            <div className="relative group">
+              <button className="font-medium text-gray-600 hover:text-primary-500 transition-colors flex items-center gap-1">
+                <BarChart3 className="w-4 h-4" />
+                SEO Tools
+              </button>
+              
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <Link
+                  to="/seo-analysis"
+                  className={`block px-4 py-2 text-sm transition-colors hover:bg-gray-50 ${
+                    isActive('/seo-analysis') ? 'text-primary-600 bg-primary-50' : 'text-gray-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <BarChart3 className="w-4 h-4" />
+                    SEO Analysis
+                  </div>
+                </Link>
+                <Link
+                  to="/seo-dashboard"
+                  className={`block px-4 py-2 text-sm transition-colors hover:bg-gray-50 ${
+                    isActive('/seo-dashboard') ? 'text-primary-600 bg-primary-50' : 'text-gray-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <Bot className="w-4 h-4" />
+                    SEO Dashboard
+                  </div>
+                </Link>
+              </div>
+            </div>
           </div>
 
           {/* Language Switcher */}

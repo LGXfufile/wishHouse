@@ -7,6 +7,7 @@ import WishWall from './pages/WishWall'
 import MyWishes from './pages/MyWishes'
 import About from './pages/About'
 import SEOAnalysis from './pages/SEOAnalysis'
+import SEODashboard from './pages/SEODashboard'
 import { usePerformanceMonitor } from './hooks/usePerformanceMonitor'
 import { useEffect } from 'react'
 
@@ -59,6 +60,7 @@ function AppContent() {
           <Route path="/my-wishes" element={<MyWishes />} />
           <Route path="/about" element={<About />} />
           <Route path="/seo-analysis" element={<SEOAnalysis />} />
+          <Route path="/seo-dashboard" element={<SEODashboard />} />
         </Routes>
       </main>
       <Footer />
