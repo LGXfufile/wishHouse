@@ -2,6 +2,7 @@
 
 # 🚀 Vercel 自动部署脚本
 # 支持多分支部署：main → Production，dev → Preview
+# 新增功能：Git分支检查、远程推送、状态验证
 
 set -e  # 遇到错误立即退出
 
@@ -10,6 +11,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
 NC='\033[0m' # No Color
 
 # 项目配置
@@ -33,9 +35,152 @@ log_error() {
     echo -e "${RED}❌ $1${NC}"
 }
 
+log_step() {
+    echo -e "${PURPLE}🔄 $1${NC}"
+}
+
+# 检查Git仓库状态
+check_git_status() {
+    log_step "检查Git仓库状态..."
+    
+    # 检查是否在Git仓库中
+    if ! git rev-parse --git-dir > /dev/null 2>&1; then
+        log_error "当前目录不是Git仓库"
+        exit 1
+    fi
+    
+    # 检查工作目录是否干净
+    if ! git diff-index --quiet HEAD --; then
+        log_warning "工作目录有未提交的更改"
+        git status --porcelain
+        echo ""
+        read -p "是否要提交这些更改？(y/N): " -n 1 -r
+        echo ""
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            commit_changes
+        else
+            log_warning "跳过提交，继续部署（注意：未提交的更改不会被部署）"
+        fi
+    else
+        log_success "工作目录干净，没有未提交的更改"
+    fi
+}
+
+# 提交更改
+commit_changes() {
+    log_step "提交当前更改..."
+    
+    git add .
+    
+    # 获取提交信息
+    local commit_msg
+    read -p "请输入提交信息 (默认: Deploy updates): " commit_msg
+    commit_msg=${commit_msg:-"Deploy updates"}
+    
+    git commit -m "$commit_msg"
+    log_success "更改已提交"
+}
+
+# 获取当前分支
+get_current_branch() {
+    local branch=$(git rev-parse --abbrev-ref HEAD)
+    echo "$branch"
+}
+
+# 检查远程分支
+check_remote_branch() {
+    local branch=$1
+    
+    log_step "检查远程分支状态..."
+    
+    # 检查远程仓库连接
+    if ! git remote -v | grep -q origin; then
+        log_error "没有配置origin远程仓库"
+        exit 1
+    fi
+    
+    # 获取远程更新
+    log_info "获取远程仓库更新..."
+    git fetch origin
+    
+    # 检查远程分支是否存在
+    if git ls-remote --heads origin "$branch" | grep -q "refs/heads/$branch"; then
+        log_info "远程分支 origin/$branch 存在"
+        
+        # 检查本地分支是否领先或落后
+        local ahead=$(git rev-list --count "origin/$branch..$branch" 2>/dev/null || echo "0")
+        local behind=$(git rev-list --count "$branch..origin/$branch" 2>/dev/null || echo "0")
+        
+        if [ "$behind" -gt 0 ]; then
+            log_warning "本地分支落后远程 $behind 个提交"
+            read -p "是否要拉取远程更新？(y/N): " -n 1 -r
+            echo ""
+            if [[ $REPLY =~ ^[Yy]$ ]]; then
+                git pull origin "$branch"
+                log_success "已拉取远程更新"
+            fi
+        fi
+        
+        if [ "$ahead" -gt 0 ]; then
+            log_info "本地分支领先远程 $ahead 个提交，需要推送"
+            return 1  # 需要推送
+        else
+            log_success "本地分支与远程同步"
+            return 0  # 不需要推送
+        fi
+    else
+        log_warning "远程分支 origin/$branch 不存在，将创建新分支"
+        return 1  # 需要推送
+    fi
+}
+
+# 推送到远程仓库
+push_to_remote() {
+    local branch=$1
+    
+    log_step "推送分支 '$branch' 到远程仓库..."
+    
+    # 检查是否有远程跟踪分支
+    if ! git rev-parse --abbrev-ref "$branch@{upstream}" > /dev/null 2>&1; then
+        log_info "设置远程跟踪分支..."
+        git push -u origin "$branch"
+    else
+        git push origin "$branch"
+    fi
+    
+    log_success "成功推送到远程仓库"
+    
+    # 显示推送信息
+    local commit_hash=$(git rev-parse --short HEAD)
+    local commit_msg=$(git log -1 --pretty=format:"%s")
+    log_info "最新提交: $commit_hash - $commit_msg"
+}
+
+# 验证远程推送
+verify_remote_push() {
+    local branch=$1
+    
+    log_step "验证远程推送状态..."
+    
+    # 再次获取远程状态
+    git fetch origin
+    
+    # 检查本地和远程是否同步
+    local local_commit=$(git rev-parse HEAD)
+    local remote_commit=$(git rev-parse "origin/$branch" 2>/dev/null || echo "")
+    
+    if [ "$local_commit" = "$remote_commit" ]; then
+        log_success "本地分支与远程仓库完全同步"
+        return 0
+    else
+        log_error "推送验证失败，本地与远程不同步"
+        return 1
+    fi
+}
+
 # 检查依赖
 check_dependencies() {
-    log_info "检查必要依赖..."
+    log_step "检查必要依赖..."
     
     # 检查 Node.js
     if ! command -v node &> /dev/null; then
@@ -63,12 +208,6 @@ check_dependencies() {
     fi
     
     log_success "所有依赖检查通过"
-}
-
-# 获取当前分支
-get_current_branch() {
-    local branch=$(git rev-parse --abbrev-ref HEAD)
-    echo "$branch"
 }
 
 # 获取部署环境
@@ -107,7 +246,7 @@ get_deployment_flags() {
 
 # 构建前端项目
 build_frontend() {
-    log_info "构建前端项目..."
+    log_step "构建前端项目..."
     
     cd "$FRONTEND_DIR"
     
@@ -131,7 +270,7 @@ build_frontend() {
 
 # Vercel 登录检查
 check_vercel_auth() {
-    log_info "检查 Vercel 认证状态..."
+    log_step "检查 Vercel 认证状态..."
     
     if ! vercel whoami &> /dev/null; then
         log_warning "未登录 Vercel，请先登录"
@@ -144,7 +283,7 @@ check_vercel_auth() {
 
 # 链接 Vercel 项目
 link_vercel_project() {
-    log_info "检查 Vercel 项目链接..."
+    log_step "检查 Vercel 项目链接..."
     
     cd "$FRONTEND_DIR"
     
@@ -155,6 +294,12 @@ link_vercel_project() {
         log_success "项目已成功链接到 Vercel"
     else
         log_success "项目已链接到 Vercel"
+        
+        # 显示项目信息
+        if [ -f ".vercel/project.json" ]; then
+            local project_info=$(cat .vercel/project.json)
+            log_info "项目配置: $project_info"
+        fi
     fi
     
     cd ..
@@ -166,7 +311,7 @@ deploy_to_vercel() {
     local env=$2
     local flags=$3
     
-    log_info "开始部署到 Vercel..."
+    log_step "开始部署到 Vercel..."
     log_info "分支：$branch"
     log_info "环境：$env"
     log_info "参数：$flags"
@@ -182,7 +327,6 @@ deploy_to_vercel() {
     
     if [ "$env" = "production" ]; then
         log_info "🚀 部署到生产环境..."
-        deploy_cmd="$deploy_cmd --prod"
     else
         log_info "🔄 部署到预览环境..."
     fi
@@ -205,6 +349,12 @@ deploy_to_vercel() {
         
         if [ -n "$deployment_url" ]; then
             log_success "部署地址：$deployment_url"
+            
+            # 在终端中显示可点击的链接
+            echo ""
+            echo "🌐 点击访问部署地址："
+            echo "   $deployment_url"
+            echo ""
         else
             log_success "部署完成，请检查 Vercel Dashboard 获取部署地址"
         fi
@@ -307,86 +457,127 @@ EOF
 show_deployment_info() {
     local branch=$1
     local env=$2
+    local commit_hash=$(git rev-parse --short HEAD)
+    local commit_msg=$(git log -1 --pretty=format:"%s")
     
     printf "\n"
-    log_info "=== 部署信息 ==="
-    printf "🌿 Git 分支：$branch\n"
-    printf "🌍 部署环境：$env\n"
-    printf "📦 项目名称：$PROJECT_NAME\n"
-    printf "📁 前端目录：$FRONTEND_DIR\n"
-    printf "🕒 部署时间：$(date '+%Y-%m-%d %H:%M:%S')\n"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    log_info "🚀 部署信息总览"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    printf "🌿 Git 分支：%s\n" "$branch"
+    printf "🌍 部署环境：%s\n" "$env"
+    printf "📦 项目名称：%s\n" "$PROJECT_NAME"
+    printf "📁 前端目录：%s\n" "$FRONTEND_DIR"
+    printf "🔖 提交哈希：%s\n" "$commit_hash"
+    printf "💬 提交信息：%s\n" "$commit_msg"
+    printf "🕒 部署时间：%s\n" "$(date '+%Y-%m-%d %H:%M:%S')"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     printf "\n"
 }
 
 # 主函数
 main() {
     printf "\n"
-    log_info "🚀 开始 Vercel 自动部署流程"
+    echo "🚀🚀🚀 Vercel 自动部署流程启动 🚀🚀🚀"
     printf "\n"
     
-    # 检查依赖
+    # 1. 检查依赖
     check_dependencies
     
-    # 获取当前分支
+    # 2. 检查Git状态
+    check_git_status
+    
+    # 3. 获取当前分支
     local current_branch
     current_branch=$(get_current_branch)
+    log_info "当前分支: $current_branch"
     
-    # 确定部署环境
+    # 4. 检查远程分支状态
+    local need_push=false
+    if ! check_remote_branch "$current_branch"; then
+        need_push=true
+    fi
+    
+    # 5. 推送到远程（如果需要）
+    if [ "$need_push" = true ]; then
+        push_to_remote "$current_branch"
+        verify_remote_push "$current_branch"
+    fi
+    
+    # 6. 确定部署环境
     local deployment_env
     deployment_env=$(get_deployment_env "$current_branch")
     
-    # 获取部署参数
+    # 7. 获取部署参数
     local deployment_flags
     deployment_flags=$(get_deployment_flags "$deployment_env" "$current_branch")
     
-    # 显示部署信息
+    # 8. 显示部署信息
     show_deployment_info "$current_branch" "$deployment_env"
     
-    # 检查 Vercel 认证
+    # 9. 检查 Vercel 认证
     check_vercel_auth
     
-    # 链接 Vercel 项目
+    # 10. 链接 Vercel 项目
     link_vercel_project
     
-    # 设置 Vercel 配置
-    setup_vercel_config
-    
-    # 设置环境变量
-    setup_env_vars "$deployment_env"
-    
-    # 构建前端项目
+    # 11. 构建前端项目
     build_frontend
     
-    # 部署到 Vercel
+    # 12. 部署到 Vercel
     deploy_to_vercel "$current_branch" "$deployment_env" "$deployment_flags"
     
     printf "\n"
-    log_success "🎉 部署流程完成！"
+    echo "🎉🎉🎉 部署流程完成！🎉🎉🎉"
+    echo ""
+    log_success "分支 '$current_branch' 已成功部署到 '$deployment_env' 环境"
+    echo ""
+    echo "📝 后续操作建议："
+    echo "   1. 访问部署地址验证功能"
+    echo "   2. 检查 Vercel Dashboard 查看详细日志"
+    echo "   3. 如有问题，查看构建日志进行调试"
     printf "\n"
 }
 
 # 帮助信息
 show_help() {
+    echo "🚀 Vercel 自动部署脚本"
+    echo "功能：Git分支检查、远程推送、自动部署"
+    echo ""
     echo "用法: $0 [选项]"
     echo ""
     echo "选项："
     echo "  -h, --help     显示帮助信息"
     echo "  -b, --branch   指定分支（可选，默认使用当前分支）"
     echo "  -e, --env      指定环境（production/preview）"
+    echo "  --skip-push    跳过Git推送步骤"
+    echo "  --force-push   强制推送到远程"
     echo ""
     echo "示例："
     echo "  $0                    # 自动检测分支并部署"
     echo "  $0 -b main            # 部署 main 分支到生产环境"
     echo "  $0 -b dev             # 部署 dev 分支到预览环境"
     echo "  $0 -e production      # 强制部署到生产环境"
+    echo "  $0 --skip-push        # 跳过Git推送，直接部署"
     echo ""
     echo "分支映射："
-    echo "  main/master → production"
-    echo "  dev/develop → preview"
-    echo "  其他分支    → preview"
+    echo "  main/master → production 环境"
+    echo "  dev/develop → preview 环境"
+    echo "  其他分支    → preview 环境"
+    echo ""
+    echo "流程步骤："
+    echo "  1. 检查系统依赖"
+    echo "  2. 检查Git仓库状态"
+    echo "  3. 检查并推送到远程分支"
+    echo "  4. Vercel认证和项目链接"
+    echo "  5. 构建前端项目"
+    echo "  6. 部署到对应环境"
 }
 
 # 处理命令行参数
+SKIP_PUSH=false
+FORCE_PUSH=false
+
 while [[ $# -gt 0 ]]; do
     case $1 in
         -h|--help)
@@ -400,6 +591,14 @@ while [[ $# -gt 0 ]]; do
         -e|--env)
             FORCE_ENV="$2"
             shift 2
+            ;;
+        --skip-push)
+            SKIP_PUSH=true
+            shift
+            ;;
+        --force-push)
+            FORCE_PUSH=true
+            shift
             ;;
         *)
             log_error "未知选项: $1"
