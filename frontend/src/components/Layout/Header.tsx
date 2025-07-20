@@ -46,18 +46,7 @@ const Header: React.FC = () => {
                   : 'text-gray-600 hover:text-primary-500'
               }`}
             >
-              {t('nav.home')}
-            </Link>
-            <Link
-              to="/wish-wall"
-              onClick={() => handleNavClick('wish_wall', '/wish-wall')}
-              className={`font-medium transition-colors ${
-                isActive('/wish-wall') 
-                  ? 'text-primary-600' 
-                  : 'text-gray-600 hover:text-primary-500'
-              }`}
-            >
-              {t('nav.wishWall')}
+              心愿墙
             </Link>
             <Link
               to="/my-wishes"

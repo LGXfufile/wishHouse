@@ -81,11 +81,18 @@ const WishWall: React.FC = () => {
       <StructuredData type="breadcrumb" breadcrumbs={breadcrumbs} />
       
       <div className="min-h-screen py-8 px-4">
-        <div className="container mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">{seoTitle}</h1>
-            <p className="text-xl text-gray-600">{seoDescription}</p>
+        <div className="container mx-auto px-4 py-8">
+          {/* 页面标题 */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              💫 {t('wishWall.title')}
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-2">
+              {t('wishWall.subtitle')}
+            </p>
+            <p className="text-sm text-gray-500">
+              完整版心愿墙 - 浏览所有心愿，支持分页和高级筛选
+            </p>
           </div>
 
           {/* Filters */}
